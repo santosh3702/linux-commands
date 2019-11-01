@@ -1,0 +1,11 @@
+pwd - present working directory.
+cd - change directory.
+ls - list of directoryies.
+mkdir - make directory
+touch - to create a file.
+vi - is editor
+    1. open file with vi 
+    2. to edit we need to go to insert mode for that we need to press "i"
+    3. update the file by writing something
+    4. to save and come out of editor mode press "Esc" will come out of insert mode and then we need to press ":wq!" for saving. ":q" for not saving
+cat - is for viewing
