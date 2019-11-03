@@ -9,3 +9,7 @@ vi - is editor
     3. update the file by writing something
     4. to save and come out of editor mode press "Esc" will come out of insert mode and then we need to press ":wq!" for saving. ":q" for not saving
 cat - is for viewing
+rm - to delete a file or a directory we use '-rf' 
+rmdir - to delte directory.
+cp - to copy files one place to another place or rename of a filr or a directory
+mv - to move files from one place to another place or rename of a filr or a directory
