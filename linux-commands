@@ -13,3 +13,15 @@ rm - to delete a file or a directory we use '-rf'
 rmdir - to delte directory.
 cp - to copy files one place to another place or rename of a filr or a directory
 mv - to move files from one place to another place or rename of a filr or a directory
+
+----------------------------------------
+
+4 stands for "read",
+2 stands for "write",
+1 stands for "execute", and
+0 stands for "no permission."
+
+-rw       |     r         |   r
+ owner per | group permition | others permission 
+ 
+ chmod 777 
