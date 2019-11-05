@@ -25,3 +25,15 @@ mv - to move files from one place to another place or rename of a filr or a dire
  owner per | group permition | others permission 
  
  chmod 777 
+ 
+ loops;
+   for
+   while 
+   do while
+   
+ Conditions;
+   if 
+   if else 
+   if elseif else
+   
+ functions();
