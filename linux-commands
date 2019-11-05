@@ -25,7 +25,17 @@ mv - to move files from one place to another place or rename of a filr or a dire
  owner per | group permition | others permission 
  
  chmod 777 
- 
+ -------------------
+ root@ErsJumpserver1:~# ls -ltr | grep test
+-rw-r--r-- 1 root root         0 Nov  5 05:18 test.txt
+root@ErsJumpserver1:~# chgrp -R ersdevops test.txt
+root@ErsJumpserver1:~# ls -ltr | grep test
+-rw-r--r-- 1 root ersdevops        0 Nov  5 05:18 test.txt
+root@ErsJumpserver1:~# chown -R ersdevops test.txt
+root@ErsJumpserver1:~# ls -ltr | grep test
+-rw-r--r-- 1 ersdevops ersdevops        0 Nov  5 05:18 test.txt
+root@ErsJumpserver1:~# vi test.txt
+ ----------------
  loops;
    for
    while 
