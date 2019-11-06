@@ -47,3 +47,62 @@ root@ErsJumpserver1:~# vi test.txt
    if elseif else
    
  functions();
+ 
+ ------------
+ Steve Bourne wrote the Bourne shell which appeared in the Seventh Edition Bell Labs Research version of Unix.
+Many other shells have been written; this particular tutorial concentrates on the Bourne and the Bourne Again shells.
+Other shells include the Korn Shell (ksh), the C Shell (csh), and variations such as tcsh.
+This tutorial does not cover those shells.
+
+------
+
+#!/bin/sh
+# This is a comment!
+echo Hello World 
+
+The first line tells Unix that the file is to be executed by /bin/sh. This is the standard location of the Bourne shell on just about every Unix system.
+
+The second line begins with a special symbol: #. This marks the line as a comment, and it is ignored completely by the shell.
+
+The only exception is when the very first line of the file starts with #! - as ours does. This is a special directive which Unix treats specially. It means that even if you are using csh, ksh, or anything else as your interactive shell, that what follows should be interpreted by the Bourne shell.
+Similarly, a Perl script may start with the line #!/usr/bin/perl to tell your interactive shell that the program which follows should be executed by perl. For Bourne shell programming, we shall stick to #!/bin/sh.
+
+Variables :-
+
+#!/bin/sh
+MY_MESSAGE="Hello World"
+echo $MY_MESSAGE
+
+The shell does not care about types of variables; they may store strings, integers, real numbers - anything you like.
+
+MY_MESSAGE="Hello World"
+MY_SHORT_MESSAGE=hi
+MY_NUMBER=1
+MY_PI=3.142
+MY_OTHER_PI="3.142"
+MY_MIXED=123abc
+
+We can interactively set variable names using the read command; the following script asks you for your name then greets you personally:
+
+#!/bin/sh
+echo What is your name?
+read MY_NAME
+echo "Hello $MY_NAME - hope you're well."
+
+
+-----
+#!/bin/sh
+echo "What is your name?"
+read USER_NAME
+echo "Hello $USER_NAME"
+echo "I will create you a file called $USER_NAME_file"
+touch $USER_NAME_file
+
+-----
+
+#!/bin/sh
+echo "What is your name?"
+read USER_NAME
+echo "Hello $USER_NAME"
+echo "I will create you a file called ${USER_NAME}_file"
+touch "${USER_NAME}_file"
