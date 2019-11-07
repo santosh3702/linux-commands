@@ -109,6 +109,9 @@ touch "${USER_NAME}_file"
 
 -----
 
+Most languages have the concept of loops: If we want to repeat a task twenty times, we don't want to have to type in the code twenty times, with maybe a slight change each time.
+As a result, we have for and while loops in the Bourne shell. This is somewhat fewer features than other languages, but nobody claimed that shell programming has the power of C.
+
 #!/bin/sh
 for i in 1 2 3 4 5
 do
