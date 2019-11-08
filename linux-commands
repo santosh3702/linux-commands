@@ -108,16 +108,153 @@ echo "I will create you a file called ${USER_NAME}_file"
 touch "${USER_NAME}_file"
 
 -----
+Loops:
 
 Most languages have the concept of loops: If we want to repeat a task twenty times, we don't want to have to type in the code twenty times, with maybe a slight change each time.
-As a result, we have for and while loops in the Bourne shell. This is somewhat fewer features than other languages, but nobody claimed that shell programming has the power of C.
+As a result, we have for and while loops in the Bourne shell. 
 
-#!/bin/sh
-for i in 1 2 3 4 5
+for loop
+
+for loops iterate through a set of values until the list is exhausted
+
+For example, you can run UNIX command or task 5 times or read and process list of files using a for loop.
+
+for loop syntax
+
+for VARIABLE in 1 2 3 4 5 .. N
 do
-  echo "Looping ... number $i"
+	command1
+	command2
+	commandN
 done
 
+or
+
+for VARIABLE in file1 file2 file3
+do
+	command1 on $VARIABLE
+	command2
+	commandN
+done
+
+or
+
+for OUTPUT in $(Linux-Or-Unix-Command-Here)
+do
+	command1 on $OUTPUT
+	command2 on $OUTPUT
+	commandN
+done
+
+Examples:
+
+#!/bin/bash
+for i in 1 2 3 4 5
+do
+   echo "Welcome $i times"
+done
+
+#!/bin/bash
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+
+Bash v4.0+ has inbuilt support for setting up a step value using {START..END..INCREMENT} syntax:
+
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..10..2}
+  do 
+     echo "Welcome $i times"
+ done
+ 
+ Three-expression bash for loops syntax
+ 
+ for (( EXP1; EXP2; EXP3 ))
+do
+	command1
+	command2
+	command3
+done
+
+#!/bin/bash
+for (( c=1; c<=5; c++ ))
+do  
+   echo "Welcome $c times"
+done
+
+How do I use for as infinite loops?
+
+Syntax:
+
+#!/bin/bash
+for (( ; ; ))
+do
+   echo "infinite loops [ hit CTRL+C to stop]"
+done
+
+Conditional exit with break
+
+You can do early exit with break statement inside the for loop. You can exit from within a FOR, WHILE or UNTIL loop using break. General break statement inside the for loop:
+
+Syntax:
+
+for I in 1 2 3 4 5
+do
+  statements1      #Executed for all values of ''I'', up to a disaster-condition if any.
+  statements2
+  if (disaster-condition)
+  then
+	break       	   #Abandon the loop.
+  fi
+  statements3          #While good and, no disaster-condition.
+done
+
+Example:
+
+#!/bin/bash
+for file in /etc/*
+do
+	if [ "${file}" == "/etc/resolv.conf" ]
+	then
+		countNameservers=$(grep -c nameserver /etc/resolv.conf)
+		echo "Total  ${countNameservers} nameservers defined in ${file}"
+		break
+	fi
+done
+
+Early continuation with continue statement
+
+To resume the next iteration of the enclosing FOR, WHILE or UNTIL loop use continue statement.
+
+Syntax:
+
+for I in 1 2 3 4 5
+do
+  statements1      #Executed for all values of ''I'', up to a disaster-condition if any.
+  statements2
+  if (condition)
+  then
+	continue   #Go to next iteration of I in the loop and skip statements3
+  fi
+  statements3
+done
+
+Example
+#!/bin/bash
+FILES="$@"
+for f in $FILES
+do
+        # if .bak backup file exists, read next file
+	if [ -f ${f}.bak ]
+	then
+		echo "Skiping $f file..."
+		continue  # read next file and skip the cp command
+	fi
+        # we are here means no backup file exists, just use cp command to copy file
+	/bin/cp $f $f.bak
+done
 
 -----
 
