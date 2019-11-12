@@ -285,7 +285,78 @@ add_a_user bilko worsepassword Sgt. Bilko the role model
 echo "End of script..."
 
 ------
+Decision Making or condition statements
 
+If is a statement that allows the programmer to make a decision in the program based on conditions he specified. If the condition is met, the program will execute certain lines of code otherwise, the program will execute other tasks the programmer specified
+
+if Statement
+
+if [ <some test> ]
+then
+   <commands>
+fi
+
+examples
+
+String not equals
+
+#!/bin/bash
+# Basic if statement
+if [ "$1" == "demo" ]
+then
+   echo String equals.
+   pwd
+fi
+
+opperands 
+
+==	Returns true if the strings are equal
+!=	Returns true if the strings are not equal
+-n	Returns true if the string to be tested is not null
+-z	Returns true if the string to be tested is null
+
+String not equals
+
+#!/bin/bash
+# Basic if statement
+if [ "$1" != "demo" ]
+then
+   echo String not equals.
+   pwd
+fi
+
+Condition on string not null
+
+#!/bin/bash
+# Basic if statement
+if [ -n "$1" ]
+then
+   echo String not null.
+   pwd
+fi
+
+Condition on string null
+
+#!/bin/bash
+# Basic if statement
+if [ -z "$1" ]
+then
+   echo String null.
+   pwd
+fi
+
+Nested If statements
+
+if [ <some test> ]
+then
+   <commands>
+   if [ <some test> ]
+   then
+      <commands>
+   fi
+fi
+
+------
 #!/bin/sh
 
 myfunc()
