@@ -329,7 +329,7 @@ Operator	Usage/Description
 -lt	Less Than
 -ne	Not Equal
 
-examples for string conditions
+examples for string-based conditions
 
 String equals
 
@@ -371,6 +371,29 @@ then
    pwd
 fi
 
+examples for Arithmetic-based conditions
+
+#!/bin/bash
+# Basic if statement
+if [ $1 -gt 100 ]
+then
+echo Hey that\'s a large number.
+pwd
+fi
+
+examples for file-based conditions
+
+#!/bin/bash
+ 
+cd 
+ ls
+ if [ -e sample.sh ] 
+ then 
+     echo "file exists!" 
+ fi
+
+---
+
 Nested If statements
 
 if [ <some test> ]
@@ -382,6 +405,8 @@ then
    fi
 fi
 
+---
+
 If Else
 
 if [ <some test> ]
@@ -390,6 +415,8 @@ then
 else
    <other commands>
 fi
+
+---
 
 If Elif Else
 
@@ -403,11 +430,85 @@ else
 <other commands>
 fi
 
+---
+
 Boolean Operations
 
 Sometimes we only want to do something if multiple conditions are met. Other times we would like to perform the action if one of several condition is met. We can accommodate these with boolean operators.
 
+and - &&
+or - ||
 
+example and
+
+#!/bin/bash
+# and example
+if [ -r $1 ] && [ -s $1 ]
+then
+echo This file is useful.
+fi
+
+exampe or 
+
+#!/bin/bash
+# or example
+if [ $USER == 'bob' ] || [ $USER == 'andy' ]
+then
+ls -alh
+fi
+
+---
+
+Switch Statement
+
+The switch statement is another kind of conditional statement in shell scripting. It allows a programmer to compare several values against a variable in an easier way compared to if conditional statement. The syntax for switch statement is:
+
+syntax:
+
+ case  in
+ <pattern1>)
+     ##series of code for pattern1
+     ;;
+ <pattern2>)
+     ##series of code for pattern2
+     ;;
+ <patternN>)
+     ##series of code for patternN
+     ;;
+ *) 
+     ##default statements
+ esac
+ 
+ example:-
+ 
+ #!/bin/bash 
+ clear 
+ read -p "Integer1: " int1 
+ read -p "Integer2: " int2 
+ echo "======================" 
+ printf "Menu: \n[a] Addition\n[b]Subtraction\n[c]Multiplication\n[d]Division\n" 
+ echo "======================" 
+ read -p "Your choice: " choice 
+ res=0 
+ case $choice in 
+ a) 
+     res=$((int1+int2)) 
+ ;; 
+ b) 
+     res=$((int1-int2)) 
+ ;; 
+ c) 
+     res=$((int1*int2)) 
+ ;; 
+ d) 
+     res=$((int1/int2)) 
+ ;; 
+ *) 
+     echo "Invalid input" 
+ esac 
+ echo "The result is: " $res
+ 
+ 
 ------
 #!/bin/sh
 
