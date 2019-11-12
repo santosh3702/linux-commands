@@ -296,9 +296,42 @@ then
    <commands>
 fi
 
-examples
+String-based Condition
 
-String not equals
+Operator	Description
+==	Returns true if the strings are equal
+!=	Returns true if the strings are not equal
+-n	Returns true if the string to be tested is not null
+-z	Returns true if the string to be tested is null
+
+File-based condition
+
+Operator	Description
+-a file	Returns true if file exists
+-b file	Returns true if file exists and is a block special file
+-c file	Returns true if file exists and is a character special file
+-d file	Returns true if file exists and is a directory
+-e file	Returns true if file exists
+-r file	Returns true if file exists and is readable
+-s file	Returns true if file exists and has a greater size that zero
+-s file	Returns true if file exists and has a greater size that zero
+-w file	Returns true if file exists and is writable
+-x file	Returns true if file exists and is executable
+-N file	Returns true if the file exists and has been modified since it was last read
+
+Arithmetic-based Condition
+
+Operator	Usage/Description
+-eq	Equal
+-ge	Greater Than or Equal
+-gt	Greater Than
+-le	Less Than or Equal
+-lt	Less Than
+-ne	Not Equal
+
+examples for string conditions
+
+String equals
 
 #!/bin/bash
 # Basic if statement
@@ -307,13 +340,6 @@ then
    echo String equals.
    pwd
 fi
-
-opperands 
-
-==	Returns true if the strings are equal
-!=	Returns true if the strings are not equal
--n	Returns true if the string to be tested is not null
--z	Returns true if the string to be tested is null
 
 String not equals
 
@@ -355,6 +381,32 @@ then
       <commands>
    fi
 fi
+
+If Else
+
+if [ <some test> ]
+then
+   <commands>
+else
+   <other commands>
+fi
+
+If Elif Else
+
+if [ <some test> ]
+then
+<commands>
+elif [ <some test> ]
+then
+<different commands>
+else
+<other commands>
+fi
+
+Boolean Operations
+
+Sometimes we only want to do something if multiple conditions are met. Other times we would like to perform the action if one of several condition is met. We can accommodate these with boolean operators.
+
 
 ------
 #!/bin/sh
